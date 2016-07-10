@@ -6,6 +6,8 @@ namespace PotterCart
 {
     public class Cart
     {
+        private double[] discountRange = new double[] { 1, 0.95, 0.9 };
+
         public Cart()
         {
             Volumes = new List<Volume>();
@@ -22,16 +24,8 @@ namespace PotterCart
         {
             int price = 0;
             int purchasedVolumeCount = Volumes.GroupBy(x => x).Count();
-
-            if (purchasedVolumeCount >= 2)
-            {
-                price = (int)Math.Round(purchasedVolumeCount * 100 * 0.95);
-            }
-            else
-            {
-                price = purchasedVolumeCount * 100;
-            }
-
+            double discount = discountRange[purchasedVolumeCount - 1];
+            price = (int)Math.Round(purchasedVolumeCount * 100 * discount);
             return price;
         }
     }
