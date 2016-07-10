@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PotterCart
 {
@@ -18,7 +20,19 @@ namespace PotterCart
 
         public int GetPrice()
         {
-            return Volumes.Count * 100;
+            int price = 0;
+            int purchasedVolumeCount = Volumes.GroupBy(x => x).Count();
+
+            if (purchasedVolumeCount >= 2)
+            {
+                price = (int)Math.Round(purchasedVolumeCount * 100 * 0.95);
+            }
+            else
+            {
+                price = purchasedVolumeCount * 100;
+            }
+
+            return price;
         }
     }
 }
