@@ -23,9 +23,25 @@ namespace PotterCart
         public int GetPrice()
         {
             int price = 0;
-            int purchasedVolumeCount = Volumes.GroupBy(x => x).Count();
-            double discount = discountRange[purchasedVolumeCount - 1];
-            price = (int)Math.Round(purchasedVolumeCount * 100 * discount);
+            var tempVolumes = new List<Volume>();
+
+            while (Volumes.Count != 0)
+            {
+                var purchasedVolume = Volumes.Distinct().ToList();
+
+                int purchasedVolumeCount = purchasedVolume.Count();
+                double discount = discountRange[purchasedVolumeCount - 1];
+                price += (int)Math.Round(purchasedVolumeCount * 100 * discount);
+
+                foreach (var item in purchasedVolume)
+                {
+                    tempVolumes.Add(item);
+                    Volumes.Remove(item);
+                }
+            }
+
+            Volumes = tempVolumes;
+
             return price;
         }
     }
