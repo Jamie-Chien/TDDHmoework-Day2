@@ -6,7 +6,7 @@ namespace PotterCart
 {
     public class Cart
     {
-        private double[] discountRange = new double[] { 1, 0.95, 0.9 };
+        private double[] discountRange = new double[] { 1, 0.95, 0.9, 0.8 };
 
         public Cart()
         {
