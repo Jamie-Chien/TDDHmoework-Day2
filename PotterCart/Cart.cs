@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PotterCart
 {
@@ -7,16 +6,19 @@ namespace PotterCart
     {
         public Cart()
         {
+            Volumes = new List<Volume>();
         }
 
-        public void Add(Volume first)
+        public List<Volume> Volumes { get; private set; }
+
+        public void Add(Volume volume)
         {
-            throw new NotImplementedException();
+            Volumes.Add(volume);
         }
 
         public int GetPrice()
         {
-            throw new NotImplementedException();
+            return Volumes.Count * 100;
         }
     }
 }
