@@ -20,7 +20,7 @@ namespace PotterCartTest
 
         internal int GetPrice()
         {
-            return 100;
+            return Convert.ToInt32(Books.Count * 100 * 0.95);
         }
     }
 }
