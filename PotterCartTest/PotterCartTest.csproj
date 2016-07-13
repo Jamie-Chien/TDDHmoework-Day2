@@ -53,6 +53,7 @@
     <Compile Include="Cart.cs" />
     <Compile Include="CartTest.cs" />
     <Compile Include="CartEnumTest.cs" />
+    <Compile Include="EnumerableExtender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

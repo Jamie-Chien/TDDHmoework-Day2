@@ -1,6 +1,7 @@
 ﻿using PotterCart;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PotterCartTest
 {
@@ -21,7 +22,14 @@ namespace PotterCartTest
 
         internal int GetPrice()
         {
-            return Convert.ToInt32(Books.Count * 100 * discountTable[Books.Count - 1]);
+            int price = 0;
+            while (Books.Count > 0)
+            {
+                var groupedBooks = Books.Distinct(x => x.Volume).ToList();
+                price += Convert.ToInt32(groupedBooks.Count * 100 * discountTable[groupedBooks.Count - 1]);
+                Books.RemoveAll(x => groupedBooks.Contains(x));
+            }
+            return price;
         }
     }
 }

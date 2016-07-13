@@ -1,7 +1,10 @@
-﻿namespace PotterCart
+﻿using System;
+
+namespace PotterCart
 {
-    public class Book
+    public class Book 
     {
         public Volume Volume { get; set; }
+        
     }
 }
