@@ -7,6 +7,7 @@ namespace PotterCartTest
     class Cart
     {
         private List<Book> Books;
+        private readonly double[] discountTable = new double[] { 1, 0.95, 0.9 };
 
         public Cart()
         {
@@ -20,7 +21,7 @@ namespace PotterCartTest
 
         internal int GetPrice()
         {
-            return Convert.ToInt32(Books.Count * 100 * 0.95);
+            return Convert.ToInt32(Books.Count * 100 * discountTable[Books.Count - 1]);
         }
     }
 }
