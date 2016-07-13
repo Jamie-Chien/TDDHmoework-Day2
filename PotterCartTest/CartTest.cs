@@ -68,5 +68,23 @@ namespace PotterCartTest
             int expected = 320;
             Assert.AreEqual(expected, cart.GetPrice());
         }
+
+        [TestMethod]
+        public void BuyFirstToFifthPriceShouldBe375()
+        {
+            //arrange
+            var cart = new Cart();
+
+            //act
+            cart.Add(new Book { Volume = Volume.First });
+            cart.Add(new Book { Volume = Volume.Second });
+            cart.Add(new Book { Volume = Volume.Third });
+            cart.Add(new Book { Volume = Volume.Fourth });
+            cart.Add(new Book { Volume = Volume.Fifth });
+
+            //assert
+            int expected = 375;
+            Assert.AreEqual(expected, cart.GetPrice());
+        }
     }
 }
