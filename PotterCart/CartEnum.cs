@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace PotterCart
 {
-    public class Cart
+    public class CartEnum
     {
         private double[] discountRange = new double[] { 1, 0.95, 0.9, 0.8, 0.75 };
 
-        public Cart()
+        public CartEnum()
         {
             Volumes = new List<Volume>();
         }

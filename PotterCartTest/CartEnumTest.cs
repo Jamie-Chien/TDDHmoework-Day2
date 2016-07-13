@@ -4,13 +4,13 @@ using PotterCart;
 namespace PotterCartTest
 {
     [TestClass]
-    public class CartTest
+    public class CartEnumTest
     {
         [TestMethod]
         public void BuyFirstPriceShouldBe100()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
@@ -24,7 +24,7 @@ namespace PotterCartTest
         public void BuyFirstAndSecondPriceShouldBe190()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
@@ -39,7 +39,7 @@ namespace PotterCartTest
         public void BuyFirstToThirdPriceShouldBe270()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
@@ -55,7 +55,7 @@ namespace PotterCartTest
         public void BuyFirstToFourthPriceShouldBe320()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
@@ -72,7 +72,7 @@ namespace PotterCartTest
         public void BuyFirstToFifthPriceShouldBe375()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
@@ -90,7 +90,7 @@ namespace PotterCartTest
         public void BuyFirst1Seond1Third2PriceShouldBe370()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
@@ -107,7 +107,7 @@ namespace PotterCartTest
         public void BuyFirst1Second2Third2PriceShould460()
         {
             //arrange
-            var cart = new Cart();
+            var cart = new CartEnum();
 
             //act
             cart.Add(Volume.First);
