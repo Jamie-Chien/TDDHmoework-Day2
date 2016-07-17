@@ -8,11 +8,20 @@ namespace PotterCartTest
     public class Cart
     {
         private List<Book> Books;
-        private readonly double[] discountTable = new double[] { 1, 0.95, 0.9, 0.8, 0.75 };
+        private readonly Dictionary<int, double> discountTable = null;
         private readonly int priceOfBook = 100;
 
         public Cart()
         {
+            discountTable = new Dictionary<int, double>
+            {
+                { 1, 1 },
+                { 2, 0.95 },
+                { 3, 0.9 },
+                { 4, 0.8 },
+                { 5, 0.75 }
+            };
+
             Books = new List<Book>();
         }
 
@@ -32,7 +41,7 @@ namespace PotterCartTest
             {
                 var groupedBooks = books.Distinct(x => x.Volume).ToList();
 
-                var discount = discountTable[groupedBooks.Count - 1];
+                var discount = discountTable[groupedBooks.Count];
 
                 int groupedPice = Convert.ToInt32(groupedBooks.Count * priceOfBook * discount);
 

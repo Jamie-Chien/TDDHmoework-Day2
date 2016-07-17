@@ -6,10 +6,19 @@ namespace PotterCart
 {
     public class CartEnum
     {
-        private double[] discountRange = new double[] { 1, 0.95, 0.9, 0.8, 0.75 };
+        private Dictionary<int, double> discountRange = null;
 
         public CartEnum()
         {
+            discountRange = new Dictionary<int, double>()
+            {
+                {1, 1 },
+                {2,0.95 },
+                {3,0.9 },
+                {4, 0.8 },
+                {5,0.75 }
+            };
+
             Volumes = new List<Volume>();
         }
 
@@ -33,7 +42,7 @@ namespace PotterCart
                 removeElementFromList(ref volumes, purchasedVolume);
 
                 int purchasedVolumeCount = purchasedVolume.Count();
-                double discount = discountRange[purchasedVolumeCount - 1];
+                double discount = discountRange[purchasedVolumeCount];
 
                 int priceOfGroup = (int)Math.Round(purchasedVolumeCount * 100 * discount);
                 return priceOfGroup + CalcualtePrice(volumes, price);
