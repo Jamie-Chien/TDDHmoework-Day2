@@ -7,7 +7,7 @@ namespace PotterCartTest
 {
     public class Cart
     {
-        private List<Book> Books;
+        private List<Book> books;
         private readonly Dictionary<int, double> discountTable = null;
         private readonly int priceOfBook = 100;
 
@@ -22,17 +22,17 @@ namespace PotterCartTest
                 { 5, 0.75 }
             };
 
-            Books = new List<Book>();
+            books = new List<Book>();
         }
 
         public void Add(Book book)
         {
-            Books.Add(book);
+            books.Add(book);
         }
 
         public int GetPrice()
         {
-            return CalculatePrice(Books, 0);
+            return CalculatePrice(books, 0);
         }
 
         private int CalculatePrice(List<Book> books, int price)
